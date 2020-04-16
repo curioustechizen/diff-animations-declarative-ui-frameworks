@@ -1,0 +1,1 @@
+Attempt to recreate the animations [found](https://kiranrao.in/blog/2020/01/12/diff-util-part3/) [here](https://github.com/curioustechizen/diffutil-custom-animations), using SwiftUI and Jetpack Compose.
