@@ -12,20 +12,22 @@ struct CircularArrangementView: View {
     
     var body: some View {
         
-            ZStack {
-                ForEach(circleInfoModel.activeCircles) { circleInfo in
-                    ColorView(circleInfo: circleInfo)
-                        .offset(x: self.xOffset(self.circleInfoModel.index(of: circleInfo)!),
-                                y: self.yOffset(self.circleInfoModel.index(of: circleInfo)!))
-                        .animation(.easeInOut(duration: 3))
-                        .transition(.custom)
-                }
-                
-                Button(action: {self.circleInfoModel.toggle()}) {
-                    Text("Toggle").font(.title)
-                }.offset(y: 300)
+        ZStack {
+            ForEach(circleInfoModel.activeCircles) { circleInfo in
+                ColorView(circleInfo: circleInfo)
+                    .offset(x: self.xOffset(self.circleInfoModel.index(of: circleInfo)!),
+                            y: self.yOffset(self.circleInfoModel.index(of: circleInfo)!))
+                    .animation(.easeInOut)
+                    .transition(.custom)
             }
             
+            Button(action: {
+                withAnimation { self.circleInfoModel.toggle() }
+            }) {
+                Text("Toggle").font(.title)
+            }.offset(y: 300)
+        }
+        
     }
     
     private func xOffset(_ index: Int) -> CGFloat {
