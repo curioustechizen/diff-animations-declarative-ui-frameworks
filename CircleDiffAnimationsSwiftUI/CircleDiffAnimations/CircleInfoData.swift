@@ -32,7 +32,7 @@ fileprivate let red = CircleInfo(color: Color.red)
 struct CircleInfoModel {
     
     private static let circles1 = [purple, gray, blue, green, yellow, orange, red]
-    private static let circles2 = [purple, gray.withExpanded(true), green, orange.withExpanded(true), red]
+    private static let circles2 = [purple, gray.withExpanded(true),  orange.withExpanded(true), red, green]
     
     private(set) var activeCircles = circles1
     

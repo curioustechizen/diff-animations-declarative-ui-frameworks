@@ -17,12 +17,10 @@ struct CircularArrangementView: View {
                 ColorView(circleInfo: circleInfo)
                     .offset(x: self.xOffset(self.circleInfoModel.index(of: circleInfo)!),
                             y: self.yOffset(self.circleInfoModel.index(of: circleInfo)!))
-                    .animation(.easeInOut)
-                    .transition(.custom)
             }
             
             Button(action: {
-                withAnimation { self.circleInfoModel.toggle() }
+                self.circleInfoModel.toggle()
             }) {
                 Text("Toggle").font(.title)
             }.offset(y: 300)
@@ -62,14 +60,5 @@ struct ContentView_Previews: PreviewProvider {
 extension CircleInfo {
     func getSize() -> CGFloat {
         self.isExpanded ? Dimensions.selectedSize.rawValue : Dimensions.unselectedSize.rawValue
-    }
-}
-
-extension AnyTransition {
-    static var custom: AnyTransition {
-        let insertion = AnyTransition.scale.combined(with: .offset())
-        let removal = AnyTransition.scale
-        
-        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
