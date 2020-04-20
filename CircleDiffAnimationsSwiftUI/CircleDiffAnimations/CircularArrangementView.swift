@@ -20,7 +20,9 @@ struct CircularArrangementView: View {
             }
             
             Button(action: {
-                self.circleInfoModel.toggle()
+                withAnimation {
+                    self.circleInfoModel.toggle()
+                }
             }) {
                 Text("Toggle").font(.title)
             }.offset(y: 300)
